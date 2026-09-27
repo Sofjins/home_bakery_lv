@@ -14,12 +14,12 @@ Open http://127.0.0.1:4173. No build step or runtime package installation is nee
 
 The approved `dist/assets/original.png` photograph is restored without new props. Only the user's marked regions animate:
 
-- Red: left candle, cooker-hood lights, hanging lamp, light among the jars, right candle, and oven glow brighten and dim gently.
-- Green: flowers, trailing greenery, small herb plants and other greens move continuously with small localized texture distortions.
+- Red: left candle, cooker-hood lights, hanging lamp, light among the jars, right candle, and oven glow brighten and dim independently. A darker warm grade gives the amber light pools more visible contrast.
+- Green: flowers, trailing greenery, small herb plants and other greens move continuously with more noticeable localized texture distortions.
 - White: three soft, curling wisps of steam rise from the original pie.
 - Orange: the wooden hearts sway slightly around their string attachments.
 
-The viewpoint is fixed. There are no hover-driven effects, movable props, cooking utensils, flour particles, dust particles or fabric animation. The previously implemented bilingual book and pause control remain available. Reduced-motion preferences pause the scene.
+The viewpoint is fixed. There are no hover-driven effects, movable props, cooking utensils, flour particles, dust particles or fabric animation. The bilingual book has layered page edges, curved paper shading, a deeper binding gutter, and printed front/back faces during forward and backward page turns. Larger labeled navigation buttons have a minimum 58px touch height. The pause control remains available. Reduced-motion preferences pause the scene.
 
 This is a 2.5D photographic composition. The only rendered scene meshes are the original image and a transparent steam layer. Plant and heart motion and light modulation are confined to masks in the image shader.
 

@@ -7,6 +7,7 @@
   <title>Home Bakery — На кухне у Марины</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23342518'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Georgia' font-size='44' fill='%23ebd7ac'%3Em%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./book.css">
   <script type="module" src="./kitchen.js"></script>
 </head>
 <body>
@@ -29,7 +30,7 @@
   <dialog id="book-dialog" aria-labelledby="book-heading">
     <button id="close-book" class="close" aria-label="Закрыть">×</button>
     <div class="book-shell"><div class="book-spine" aria-hidden="true"></div><div class="book-page left-page"><div class="book-brand">Home Bakery</div><span class="eyebrow" data-i18n="fromMarina">ИЗ КУХНИ МАРИНЫ</span><h2 id="book-heading"></h2><div class="book-ornament" aria-hidden="true">✻</div><p id="book-note"></p><span id="page-left" class="page-number">01</span></div><div class="book-page right-page"><div id="recipe-content"></div><span id="page-right" class="page-number">02</span></div><div id="turn-sheet" aria-hidden="true"></div></div>
-    <div class="book-controls"><button id="prev-page" aria-label="Предыдущая страница">←</button><span id="page-status"></span><button id="next-page" aria-label="Следующая страница">→</button></div>
+    <div class="book-controls"><button id="prev-page" aria-label="Предыдущая страница"><span class="arrow" aria-hidden="true">‹</span><span data-i18n="prevShort">Назад</span></button><span id="page-status"></span><button id="next-page" aria-label="Следующая страница"><span data-i18n="nextShort">Далее</span><span class="arrow" aria-hidden="true">›</span></button></div>
     <a class="book-cta" href="https://www.instagram.com/home.baker_lv/" target="_blank" rel="noopener noreferrer" data-i18n="discuss">Обсудить меню с Мариной ↗</a>
   </dialog>
   <noscript><p class="noscript">Для интерактивной кухни включите JavaScript. <a href="https://www.instagram.com/home.baker_lv/">Написать Марине в Instagram</a></p></noscript>
