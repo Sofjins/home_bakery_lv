@@ -1,28 +1,16 @@
-// Optional browser verification: npm install --no-save playwright,
-// or supply an absolute module path through PLAYWRIGHT_MODULE.
-const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const assert=require('node:assert/strict');
 (async()=>{
- const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true,args:['--use-gl=angle','--use-angle=swiftshader','--enable-webgl']});
- const page=await browser.newPage({viewport:{width:1440,height:900},deviceScaleFactor:1});
- const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
- await page.goto('http://127.0.0.1:4173',{waitUntil:'networkidle'});
- await page.waitForFunction(()=>window.kitchenDebug?.getState().loaded,{timeout:30000});
- await page.waitForTimeout(1600);
- await page.screenshot({path:'qa-desktop.png'});
- const initial=await page.evaluate(()=>window.kitchenDebug.getState());
- const point=await page.evaluate(()=>{const s=window.kitchenDebug.getState();const p=s.items.find(i=>i.kind==='mug');return window.kitchenDebug.worldToScreen(p.x,p.y)});
- await page.mouse.move(point.x,point.y);await page.mouse.down();await page.mouse.move(point.x+100,point.y+40,{steps:15});await page.waitForTimeout(300);await page.mouse.up();
- await page.waitForTimeout(300);const after=await page.evaluate(()=>window.kitchenDebug.getState());
- const moved=Math.abs(after.items.find(i=>i.kind==='mug').angle-initial.items.find(i=>i.kind==='mug').angle)>.03;
- await page.locator('#menu-button').click();await page.waitForTimeout(700);await page.locator('#next-page').click();await page.waitForTimeout(700);
- const bookWorks=(await page.locator('#book-heading').innerText()).includes('Чаша');
- await page.screenshot({path:'qa-book.png'});await page.keyboard.press('Escape');
- await page.locator('[data-lang="lv"]').click();const lvWorks=(await page.locator('#menu-button').innerText())==='Recepšu grāmata';
- await page.locator('#motion').click();const paused=await page.evaluate(()=>window.kitchenDebug.getState().paused);
- await page.locator('#reset').click();
- await page.setViewportSize({width:390,height:844});await page.waitForTimeout(500);await page.screenshot({path:'qa-mobile.png'});
- await page.locator('#mobile-book').click();await page.waitForTimeout(650);await page.screenshot({path:'qa-mobile-book.png'});
- const noOverflow=await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth);
- console.log(JSON.stringify({initialItems:initial.itemCount,dragChangesAngle:moved,bookPageTurns:bookWorks,latvianToggle:lvWorks,pause:paused,mobileNoOverflow:noOverflow,errors},null,2));
- await browser.close();if(errors.length||!moved||!bookWorks||!lvWorks||!paused||!noOverflow)process.exit(1);
-})();
+ const browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true,args:['--use-gl=angle','--use-angle=swiftshader','--enable-webgl']});
+ try{
+ const page=await browser.newPage({viewport:{width:1440,height:900},deviceScaleFactor:1});const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+ await page.goto(process.env.PREVIEW_URL||'http://127.0.0.1:4173',{waitUntil:'networkidle'});await page.waitForFunction(()=>window.kitchenDebug?.getState().loaded);
+ const state=()=>page.evaluate(()=>window.kitchenDebug.getState());const initial=await state();await page.waitForTimeout(1000);const moving=await state();assert.notDeepEqual(initial.spoon,moving.spoon,'Spoon must stir automatically');assert.notDeepEqual(initial.whisk,moving.whisk,'Whisk must move automatically');assert.deepEqual(initial.props,moving.props,'Furniture must stay fixed');
+ await page.mouse.move(500,400);await page.mouse.down();await page.mouse.move(740,600,{steps:12});await page.mouse.up();const afterDrag=await state();assert.deepEqual(initial.camera,afterDrag.camera,'Dragging must not move camera');assert.deepEqual(initial.props,afterDrag.props,'Dragging must not move objects');assert.deepEqual(afterDrag.interactiveObjects,['book']);assert.equal(await page.locator('.hotspot').count(),0);
+ await page.screenshot({path:'qa-ambient-desktop.png'});await page.locator('#scene-book').click();assert.equal(await page.locator('#book-dialog').evaluate(e=>e.open),true);await page.locator('#next-page').click();await page.waitForTimeout(700);assert.equal((await state()).bookPage,1);await page.keyboard.press('Escape');
+ await page.locator('[data-lang="lv"]').click();assert.equal((await state()).lang,'lv');await page.locator('#motion').click();const p1=await state();await page.waitForTimeout(300);const p2=await state();assert.deepEqual(p1.spoon,p2.spoon);assert.equal(p1.time,p2.time);await page.locator('#motion').click();
+ await page.setViewportSize({width:390,height:844});await page.waitForTimeout(400);const mobile=await state();await page.mouse.move(170,450);await page.mouse.down();await page.mouse.move(290,450,{steps:8});await page.mouse.up();assert.deepEqual(mobile.camera,(await state()).camera);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await page.screenshot({path:'qa-ambient-mobile.png'});
+ await page.locator('#mobile-book').click();assert.equal(await page.locator('#book-dialog').evaluate(e=>e.open),true);await page.keyboard.press('Escape');await page.emulateMedia({reducedMotion:'reduce'});await page.waitForFunction(()=>window.kitchenDebug.getState().paused);assert.equal((await state()).paused,true);const r1=await state();await page.waitForTimeout(250);assert.equal(r1.time,(await state()).time);
+ assert.deepEqual(errors,[]);console.log(JSON.stringify({fixedCamera:true,noDragging:true,automaticStirring:true,automaticWhisking:true,bookAndLanguages:true,pauseAndReducedMotion:true,mobile:true,errors},null,2));
+ }finally{await browser.close()}
+})().catch(e=>{console.error(e);process.exit(1)});

@@ -1,0 +1,18 @@
+export const bookData={
+ ru:[
+  ['Приготовлено\nс заботой','Разовый заказ, домашнее меню на неделю или угощение для гостей — расскажите Марине, что вы любите.','Добро пожаловать',['Пироги и киши на заказ','Еженедельная готовка для семьи','Готовка у вас на кухне','Блюда для небольших встреч','Самовывоз или доставка по договорённости']],
+  ['Чаша домашнего\nтепла','От знакомого с детства борща до ароматного Том Яма.','Супы',['Борщ · Щи · Рассольник','Куриный · С фрикадельками','Грибной · Рыбный · Щавелевый','Том Ям · Томатный суп-пюре','Холодный свекольный · Окрошка','Гаспачо · Фасолевый · Чечевичный']],
+  ['К семейному\nстолу','Вы выбираете любимые блюда. Марина покупает продукты и готовит для вас.','Мясо и рыба',['Котлеты · Тефтели · Ёжики','Гуляш · Строганов · Голубцы','Курица карри · Вок · Наггетсы','Фаршированные перцы и кабачки','Мясо по-французски · Отбивные','Запеканка с мясом','Рыба в духовке · По-тайски','Рыбные котлеты']],
+  ['Вкусные\nсочетания','Овощи, крупы и свежие салаты, чтобы каждый день был разным.','Гарниры и салаты',['Рис с овощами · Ризотто · Плов','Гречка · Булгур · Паста · Киноа','Картофель · Пюре · Овощное рагу','Чечевица · Фасоль · Кичари','Оливье · Винегрет · Греческий','Сырный · Крабовый','Баклажаны с перцем · Спаржа','Салат с лососем или креветками']],
+  ['Доброе\nутро','Неспешный завтрак дома или угощение для коллег в офисе.','Завтраки',['Сырники · Оладьи · Драники','Тонкие блины с любой начинкой','Чечевичные блинчики','Фриттата · Яичные кексы','Каша · Чиа-пудинг','Творожные бейглы · Брускетты']],
+  ['Только\nиз духовки','Тёплая выпечка, которой приятно поделиться.','Выпечка и любимое',['Киши с разными начинками','Киш с лососем','Пироги по вашему пожеланию','Сырные булочки с травами','Творожная запеканка','Чизкейк · Рулет из лаваша']]
+ ],
+ lv:[
+  ['Gatavots\nar rūpēm','Pasūtījums vienai reizei, mājas ēdienkarte nedēļai vai cienasts viesiem — pastāstiet Marinai, kas jums garšo.','Laipni lūgti',['Pīrāgi un kiši pēc pasūtījuma','Iknedēļas gatavošana ģimenei','Gatavošana jūsu virtuvē','Ēdieni nelielām svinībām','Saņemšana vai piegāde pēc vienošanās']],
+  ['Mājas siltums\nbļodā','No ierastā boršča līdz smaržīgai Tom Yum zupai.','Zupas',['Borščs · Kāpostu zupa · Rasoļņiks','Vistas zupa · Frikadeļu zupa','Sēņu · Zivju · Skābeņu zupa','Tom Yum · Tomātu biezzupa','Aukstā biešu zupa · Okroška','Gaspačo · Pupiņu · Lēcu zupa']],
+  ['Ģimenes\ngaldam','Jūs izvēlaties ēdienus. Marina iegādājas produktus un gatavo jums.','Gaļa un zivis',['Kotletes · Tefteles · Gaļas eži','Gulašs · Stroganovs · Kāpostu tīteņi','Vistas karijs · Voks · Nageti','Pildīti pipari un kabači','Gaļa franču gaumē · Karbonādes','Kartupeļu un gaļas sacepums','Zivis cepeškrāsnī · Taizemiešu gaumē','Zivju kotletes']],
+  ['Gardas\nkombinācijas','Dārzeņi, graudaugi un svaigi salāti ikdienas dažādībai.','Piedevas un salāti',['Rīsi ar dārzeņiem · Rizoto · Plovs','Griķi · Bulgurs · Pasta · Kvinoja','Kartupeļi · Biezenis · Dārzeņu sautējums','Lēcas · Pupiņas · Kičari','Rasols · Vinegrets · Grieķu salāti','Siera salāti · Krabju salāti','Baklažāni ar papriku · Sparģeļi','Salāti ar lasi vai garnelēm']],
+  ['Labrīt!','Nesteidzīgām brokastīm mājās vai cienastam kolēģiem birojā.','Brokastis',['Biezpiena plācenīši · Pankūkas','Kartupeļu pankūkas','Plānās pankūkas ar pildījumu','Lēcu pankūkas · Fritata','Olu mafini · Putra · Čia pudiņš','Biezpiena beigeli · Brusketas']],
+  ['Tikko\nno krāsns','Silti mājas gardumi, ar kuriem dalīties.','Mājās cepts',['Kiši ar dažādiem pildījumiem','Laša kišs','Pīrāgi pēc jūsu vēlmēm','Siera maizītes ar zaļumiem','Biezpiena sacepums','Siera kūka · Lavaša rulete']]
+ ]
+};
