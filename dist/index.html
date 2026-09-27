@@ -12,26 +12,26 @@
 </head>
 <body>
   <main id="kitchen" aria-label="Интерактивная кухня Марины">
-    <div id="stage"><img id="fallback" src="./assets/original.png" alt="Уютная дубовая кухня Марины с тёплым светом, домашним кишем и книгой рецептов"><div id="canvas-host"></div><button id="scene-book" aria-label="Открыть книгу Марины"></button></div>
+    <div id="stage"><img id="fallback" src="./assets/original.png" alt="Уютная дубовая кухня Марины с тёплым светом, домашним кишем и книгой рецептов"><div id="canvas-host"></div><button id="scene-book" aria-label="Открыть книгу Марины"><svg viewBox="0 0 326 143" aria-hidden="true" preserveAspectRatio="none"><path d="M10 27 L189 2 L322 70 L324 116 L101 141 L2 56 Z"/></svg></button></div>
     <div class="vignette" aria-hidden="true"></div>
     <header>
       <a class="brand" href="./" aria-label="Home Bakery"><span class="brand-mark">m.</span><span>Home Bakery<small>MARINA · RĪGA</small></span></a>
-      <nav aria-label="Главное меню"><button id="menu-button" class="nav-link" data-i18n="menu">Книга рецептов</button><a class="contact" href="https://www.instagram.com/home.baker_lv/" target="_blank" rel="noopener noreferrer" data-i18n="contact">Написать Марине <span aria-hidden="true">↗</span></a><div class="languages" aria-label="Language"><button data-lang="ru" aria-pressed="true">RU</button><span>/</span><button data-lang="lv" aria-pressed="false">LV</button></div></nav>
+      <nav aria-label="Главное меню"><button id="about-button" class="nav-link" data-i18n="about">Обо мне</button><button id="menu-button" class="nav-link" data-i18n="menu">Книга рецептов</button><a class="contact" href="https://www.instagram.com/home.baker_lv/" target="_blank" rel="noopener noreferrer" data-i18n="contact">Написать Марине <span aria-hidden="true">↗</span></a><div class="languages" aria-label="Language"><button data-lang="ru" aria-pressed="true">RU</button><span>/</span><button data-lang="lv" aria-pressed="false">LV</button></div></nav>
     </header>
     <div id="welcome"><span class="eyebrow" data-i18n="welcome">ДОБРО ПОЖАЛОВАТЬ</span><h1 data-i18n="title">На кухне у Марины</h1><p data-i18n="intro">Здесь всегда что-то вкусное.</p></div>
     <div id="loading" role="status"><span class="loading-dot"></span><span data-i18n="loading">Зажигаем свет на кухне…</span></div>
     <footer>
       <div class="scene-caption"><span class="small-rule"></span><span id="instruction" data-i18n="instruction">РИГА · ДОМАШНЯЯ КУХНЯ</span></div>
-      <div class="tools"><button id="motion" aria-pressed="false" data-i18n="pause">Пауза</button></div>
+
     </footer>
     <button id="mobile-book" data-i18n="menu">Книга рецептов</button>
     <div id="live" class="sr-only" aria-live="polite"></div>
   </main>
-  <dialog id="book-dialog" aria-labelledby="book-heading">
+  <dialog id="book-dialog" aria-label="Книга рецептов">
     <button id="close-book" class="close" aria-label="Закрыть">×</button>
-    <div class="book-shell"><div class="book-spine" aria-hidden="true"></div><div class="book-page left-page"><div class="book-brand">Home Bakery</div><span class="eyebrow" data-i18n="fromMarina">ИЗ КУХНИ МАРИНЫ</span><h2 id="book-heading"></h2><div class="book-ornament" aria-hidden="true">✻</div><p id="book-note"></p><span id="page-left" class="page-number">01</span></div><div class="book-page right-page"><div id="recipe-content"></div><span id="page-right" class="page-number">02</span></div><div id="turn-sheet" aria-hidden="true"></div></div>
+    <div class="book-volume"><img class="book-material" src="./assets/recipe-book.png" alt="" aria-hidden="true"><div class="book-shell"><div class="book-spine" aria-hidden="true"></div><div class="book-page left-page"><div class="book-brand">Home Bakery</div><span class="eyebrow" data-i18n="fromMarina">ИЗ КУХНИ МАРИНЫ</span><h2 id="book-heading"></h2><div class="book-ornament" aria-hidden="true">✻</div><p id="book-note"></p><span id="page-left" class="page-number">01</span></div><div class="book-page right-page"><div id="recipe-content"></div><span id="page-right" class="page-number">02</span></div><div id="turn-sheet" aria-hidden="true"></div></div></div>
     <div class="book-controls"><button id="prev-page" aria-label="Предыдущая страница"><span class="arrow" aria-hidden="true">‹</span><span data-i18n="prevShort">Назад</span></button><span id="page-status"></span><button id="next-page" aria-label="Следующая страница"><span data-i18n="nextShort">Далее</span><span class="arrow" aria-hidden="true">›</span></button></div>
-    <a class="book-cta" href="https://www.instagram.com/home.baker_lv/" target="_blank" rel="noopener noreferrer" data-i18n="discuss">Обсудить меню с Мариной ↗</a>
+    <p id="book-hint" class="book-hint"></p>
   </dialog>
   <noscript><p class="noscript">Для интерактивной кухни включите JavaScript. <a href="https://www.instagram.com/home.baker_lv/">Написать Марине в Instagram</a></p></noscript>
 </body>

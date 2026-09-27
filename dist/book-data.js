@@ -16,3 +16,9 @@ export const bookData={
   ['Tikko\nno krāsns','Silti mājas gardumi, ar kuriem dalīties.','Mājās cepts',['Kiši ar dažādiem pildījumiem','Laša kišs','Pīrāgi pēc jūsu vēlmēm','Siera maizītes ar zaļumiem','Biezpiena sacepums','Siera kūka · Lavaša rulete']]
  ]
 };
+
+bookData.ru.push(['Для вашего\nстола','Самые любимые блюда начинаются с простого разговора.','Давайте придумаем ваше меню',[]]);
+bookData.lv.push(['Jūsu\ngaldam','Iemīļotākie ēdieni sākas ar vienkāršu sarunu.','Izplānosim jūsu ēdienkarti',[]]);
+
+bookData.ru.splice(bookData.ru.length-1,0,['Давайте\nзнакомиться','Домашняя еда, приготовленная с теплом.','Обо мне',['Меня зовут Марина. Я живу и готовлю в Риге. Много лет я готовила для семьи и друзей, а теперь — и для тех, кто ценит настоящую домашнюю еду.','Можно заказать пирог к чаю, угощение для гостей или договориться о еженедельном меню. Я готовлю у себя дома или на вашей кухне и могу взять на себя покупку продуктов.','Мне хочется, чтобы за вашим столом было вкусно и уютно. Расскажите, что вы любите, — и мы всё придумаем вместе.']]);
+bookData.lv.splice(bookData.lv.length-1,0,['Iepazīsimies!','Mājas ēdiens, gatavots ar sirsnību.','Par mani',['Mani sauc Marina. Es dzīvoju un gatavoju Rīgā. Daudzus gadus gatavoju ģimenei un draugiem, bet tagad arī tiem, kas novērtē īstu mājas ēdienu.','Var pasūtīt pīrāgu pie tējas, cienastu viesiem vai vienoties par iknedēļas ēdienkarti. Gatavoju savās mājās vai jūsu virtuvē un varu parūpēties arī par produktu iegādi.','Vēlos, lai pie jūsu galda būtu gardi un omulīgi. Pastāstiet, kas jums garšo, un kopā visu izplānosim.']]);

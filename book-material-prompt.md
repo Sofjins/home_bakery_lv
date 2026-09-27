@@ -1,0 +1,5 @@
+# Book material generation
+
+Tool: built-in image_gen. Asset: dist/assets/recipe-book.png.
+
+Prompt: Photoreal product-mockup book skin for an interactive recipe book. One open antique family cookbook, overhead flat lay straight down, horizontal symmetrical spread, landscape 3:2. Entire book visible and tightly filling frame. Worn dark chestnut leather, fine grain, rounded scuffed corners, subtle stitching, irregular stacked page edges; a treasured 40-year-old family cookbook. Two empty warm ivory pages, subtly bowed from a deep sewn center gutter, natural paper fibres, uneven cream aging at edges, tiny age specks around margins. Large clean blank writing areas. Left page from 4% to 50%, right from 50% to 96%; top 4%, bottom 94%. Slight natural page curvature without large curls. Warm soft candle illumination from upper left, realistic contact shadows. Thin faded burgundy ribbon peeking below center. No text, letters, handwriting, ornaments, food, dishes, hands, table or other objects. Photographic macro detail, not a vector or digital UI. Transparent background requested; delivered material is clipped around the book silhouette in the interface.
