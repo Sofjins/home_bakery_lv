@@ -10,16 +10,18 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory dist
 
 Open http://127.0.0.1:4173. No build step or runtime package installation is needed. Three.js 0.180.0 is vendored with its license. Google Fonts are optional and have system fallbacks.
 
-## Ambient motion
+## Current scene: the marked original
 
-- Slow automatic stirring of vegetable soup, small surface ripples and bubbles, and rising steam.
-- A self-moving whisk in a flour-and-batter bowl, with sparse flour particles.
-- Gentle localized movement in herbs, leafy greens, dried flowers and linen.
-- Soft candle flicker, breathing oven light, subtle reflections on copper and glass, heat shimmer and drifting dust.
-- No mouse-driven camera motion, scene panning, dragging, or per-object controls.
-- The book opens bilingual Russian/Latvian menu pages. Language and pause controls remain accessible. Reduced-motion preferences pause the scene, and hidden tabs stop advancing animation time.
+The approved `dist/assets/original.png` photograph is restored without new props. Only the user's marked regions animate:
 
-This is a 2.5D photographic composition, not a reconstructed volumetric room. Vegetation and fabric move through small localized texture distortions. The cooking tools are transparent photographic layers; their tips are occluded by vessel fronts. Original photographic candle flames remain underneath animated illumination.
+- Red: left candle, cooker-hood lights, hanging lamp, light among the jars, right candle, and oven glow brighten and dim gently.
+- Green: flowers, trailing greenery, small herb plants and other greens move continuously with small localized texture distortions.
+- White: three soft, curling wisps of steam rise from the original pie.
+- Orange: the wooden hearts sway slightly around their string attachments.
+
+The viewpoint is fixed. There are no hover-driven effects, movable props, cooking utensils, flour particles, dust particles or fabric animation. The previously implemented bilingual book and pause control remain available. Reduced-motion preferences pause the scene.
+
+This is a 2.5D photographic composition. The only rendered scene meshes are the original image and a transparent steam layer. Plant and heart motion and light modulation are confined to masks in the image shader.
 
 ## Version control
 
@@ -34,8 +36,8 @@ Website files are in `dist/`; bilingual content is in `dist/book-data.js`, motio
 
 ## Verification
 
-`node --check dist/kitchen.js` and `node --check dist/book-data.js` check JavaScript syntax. `verify.cjs` performs browser checks for fixed camera and furnishings, automatic utensil motion, book navigation, languages, mobile layout, pause, and reduced motion. It requires Playwright and Chrome; set `PLAYWRIGHT_MODULE`, `CHROME_PATH`, or `PREVIEW_URL` to override their defaults. Screenshots are ignored by Git.
+`node --check dist/kitchen.js` and `node --check dist/book-data.js` check JavaScript syntax. `verify.cjs` compares rendered pixels in each marked region while the pointer is idle, checks an unmarked cabinet stays unchanged, and verifies the fixed camera, book, mobile layout, pause, and reduced motion. It requires Playwright and Chrome; set `PLAYWRIGHT_MODULE`, `CHROME_PATH`, or `PREVIEW_URL` to override their defaults. Screenshots are ignored by Git.
 
 ## Assets and content
 
-The source kitchen photograph was supplied by the user. The approved oak tavern, clean backdrop, and transparent prop atlases were created with the built-in image generator. `dist/assets/cooking.png` was generated with this prompt direction: four isolated, photoreal props matching the kitchen’s warm light — copper soup pot, flour/batter bowl, upright wooden spoon, upright whisk — on a transparent 2×2 atlas. No generated dish image is presented as a photograph of Marina’s actual cooking. The menu is illustrative of her range; Latvian text should receive a native-speaker editorial review before public launch.
+The source kitchen photograph was supplied by the user. The approved oak tavern, clean backdrop, and transparent prop atlases were created with the built-in image generator. `dist/assets/cooking.png` was generated with this prompt direction: four isolated, photoreal props matching the kitchen’s warm light — copper soup pot, flour/batter bowl, upright wooden spoon, upright whisk — on a transparent 2×2 atlas. No generated dish image is presented as a photograph of Marina’s actual cooking. The current scene uses only the approved original photograph; the extra atlases are retained as historical assets and are not loaded. The menu is illustrative of her range; Latvian text should receive a native-speaker editorial review before public launch.
